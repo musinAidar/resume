@@ -1,0 +1,32 @@
+<head>
+<script type="text/javascript">
+function getResult (f) {
+    var a = f.a.value * 1, b = f.b.value * 1, h = f.h.value * 1;
+    document.getElementById('result').innerHTML = 'Результат = ' + a*b*Math.sin(h)
+};
+</script>
+</head> 
+ 
+<form onsubmit="getResult(this); return false">
+
+<div class="main">
+<div class="field">
+   <label for="a">Сторона a</label>
+   <input type="text" name="a" />
+</div>
+
+<div class="field">
+   <label for="b">Сторона b</label>
+   <input type="text" name="b" />
+</div>
+
+<div class="field">
+   <label for="b">Угол h</label>
+   <input type="text" name="h" />
+</div>
+
+<input type="submit" value="Рассчитать площадь пареллелограмма" />
+<div id="result"></div>
+
+</div>
+</form>
