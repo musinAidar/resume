@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<style>
+		.green
+		{
+			color: green;
+		}
+	</style>
+	<script>
+		function get_rand(min,max){
+			var r = min - 0.5 + Math.random()*(max-min+1);
+			return Math.round(r);
+		}
+		function do_it(){
+			var sssr = '<table id="Table">';
+			for (var i=1; i < 6; i++){
+				sssr = sssr + '<tr>';
+				for (var j=1; j < 6; j++){
+					sssr = sssr + '<td>'+get_rand(1,100)+'</td>';
+				}
+				sssr = sssr + '</tr>';
+			}
+			sssr = sssr + '</table>';
+			document.getElementById('pole').innerHTML = sssr;
+		}
+		
+		function show(){
+			var table = document.getElementById('Table');
+			for (var i=0; i<table.rows.length; i++) {
+				for (var j=0; j<table.rows[0].cells.length; j++) {
+					var TD=table.rows[i].cells[j];
+					var num=TD.innerHTML;
+					var num1=Math.sqrt(num);
+					var num2=Math.floor(num1);
+					if (num==num2*num2 ) {
+						TD.style.backgroundColor = "green";
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="push" value="Конпка" onClick="do_it()"  >
+	<input type="button" id="push" value="Конпка2" onClick="show()"  >
+	<div id="pole">
+		
+	</div>
+</body>
+</html>
